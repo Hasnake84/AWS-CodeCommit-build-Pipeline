@@ -88,5 +88,20 @@ Benefits:
 
   <a href="https://imgur.com/k22fB0h"><img src="https://i.imgur.com//k22fB0h.png" title="source: imgur.com" /></a>
 
+  - Git > git add .
+
+   <a href="https://imgur.com/nzgJFoj"><img src="https://i.imgur.com//nzgJFoj.png" title="source: imgur.com" /></a>
+
+   - Git > git push
+
+   <a href="https://imgur.com/nJ58T4G"><img src="https://i.imgur.com//nJ58T4G.png" title="source: imgur.com" /></a>
+
+   - AWS > CodePipeline > Release change for DAST OWASP ZAP scan
+   - OWASP ZAP scan report
+
+   <a href="https://imgur.com/nJ58T4G"><img src="https://i.imgur.com//nJ58T4G.png" title="source: imgur.com" /></a>
+
+
+
 
 
