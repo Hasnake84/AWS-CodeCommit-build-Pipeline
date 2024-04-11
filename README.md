@@ -4,7 +4,7 @@ This project implements a DevSecOps pipeline for integrating security scanning t
  <a href="https://imgur.com/9BxctDm"><img src="https://i.imgur.com//9BxctDm.png" title="source: imgur.com" /></a>
 # Code Repository (AWS CodeCommit) 
 This serves as the central repository where developers store their application code.
-# SonarCloud (SAST)
+# SonarCloud (SAST) Static Application Security Testing
 Performs Static Application Security Testing (SAST) by analyzing the application code directly in CodeCommit for vulnerabilities like SQL injection, insecure coding practices, and potential code smells.
 # TruffleHog
 Scans code for secrets like passwords, API keys, and other sensitive information that might be accidentally committed to the repository.
@@ -18,7 +18,7 @@ Orchestrates the entire development and security testing process.
 - CodePipeline triggers a build in CodeBuild.
 - CodeBuild retrieves the code, runs SonarCloud SAST, Snyk SCA, and TruffleHog scans, and integrates the results into the pipeline.
 - CodePipeline evaluates the scan results. If vulnerabilities are detected, it can notify developers or prevent deployment until the issues are addressed.
-# Dynamic Analysis (Zap Proxy) 
+# OWASP ZAP (Zed Attack Proxy) 
 Zap Proxy is used as a Dynamic Application Security Testing (DAST) tool. DAST involves running the application to and analyze its behavior for vulnerabilities. This can be a valuable addition for a comprehensive security assessment.
 Benefits:
 # Steps
@@ -82,7 +82,7 @@ Benefits:
   - Create an Artifacts storage
 
   <a href="https://imgur.com/uRh3sUl"><img src="https://i.imgur.com//uRh3sUl.png" title="source: imgur.com" /></a>
-  # Deploying DAST with OWASP zap
+  # Deploying DAST with OWASP zap (Zed Attack Proxy)
   
   - Rename old buildspec.yml file and add a new buildspec file with the following code
 
@@ -96,7 +96,7 @@ Benefits:
 
    <a href="https://imgur.com/nJ58T4G"><img src="https://i.imgur.com//nJ58T4G.png" title="source: imgur.com" /></a>
 
-   - AWS > CodePipeline > Release change for DAST OWASP ZAP scan
+   - AWS > CodePipeline > Release change for DAST OWASP ZAP (Zed Attack Proxy) scan
    - OWASP ZAP scan report
 
    <a href="https://imgur.com/nJ58T4G"><img src="https://i.imgur.com//nJ58T4G.png" title="source: imgur.com" /></a>
