@@ -1,14 +1,15 @@
 # DevSecOps-Automation Project
 This project implements a DevSecOps pipeline for integrating security scanning throughout the application development lifecycle within the AWS environment. The pipeline leverages various tools to identify and address security vulnerabilities early, ensuring a more secure and robust application.
-# Objectives
+# Objectives:
+ <a href="https://imgur.com/9BxctDm"><img src="https://i.imgur.com//9BxctDm.png" title="source: imgur.com" /></a>
 # Code Repository (AWS CodeCommit) 
 This serves as the central repository where developers store their application code.
 # SonarCloud (SAST)
 Performs Static Application Security Testing (SAST) by analyzing the application code directly in CodeCommit for vulnerabilities like SQL injection, insecure coding practices, and potential code smells.
-# Snyk (SCA)
-Conducts Software Composition Analysis (SCA) by scanning dependencies within the code for known vulnerabilities. This identifies potential risks introduced by third-party libraries used in the application.
 # TruffleHog
 Scans code for secrets like passwords, API keys, and other sensitive information that might be accidentally committed to the repository.
+# Snyk (SCA)
+Conducts Software Composition Analysis (SCA) by scanning dependencies within the code for known vulnerabilities. This identifies potential risks introduced by third-party libraries used in the application.
 # Build and Test (AWS CodeBuild)
 This service builds the application and executes the security scans mentioned above.
 # Deployment Pipeline (AWS CodePipeline)
@@ -33,9 +34,13 @@ Benefits:
 
   <a href="https://imgur.com/FwqfVua"><img src="https://i.imgur.com//FwqfVua.png" title="source: imgur.com" /></a>
  
-- Add code to the folder > Git > git add * > git commit -m "Added files" > Git push
+- Add code to the folder > Git > git add * > git commit -m "Adding files" 
 
-  <a href="https://imgur.com/Vt4f07J"><img src="https://i.imgur.com//Vt4f07J.png" title="source: imgur.com" /></a>  <a href="https://imgur.com/wcvxqKv"><img src="https://i.imgur.com//wcvxqKv.png" title="source: imgur.com" /></a>
+  <a href="https://imgur.com/Vt4f07J"><img src="https://i.imgur.com//Vt4f07J.png" title="source: imgur.com" /></a>
+  
+- Git > git push
+  
+  <a href="https://imgur.com/48eqkT3"><img src="https://i.imgur.com//48eqkT3.png" title="source: imgur.com" /></a>
 
 - Create a buildspec.yml file
 
@@ -76,8 +81,7 @@ Benefits:
 
   - Create an Artifacts storage
 
-  <a href="https://imgur.com/fXwWlkZ"><img src="https://i.imgur.com//fXwWlkZ.png" title="source: imgur.com" /></a>
-
+  <a href="https://imgur.com/uRh3sUl"><img src="https://i.imgur.com//uRh3sUl.png" title="source: imgur.com" /></a>
   # Deploying DAST with OWASP zap
   
   - Rename old buildspec.yml file and add a new buildspec file with the following code
