@@ -1,8 +1,26 @@
 # DevSecOps-Automation Project
-
-# AWS Code Commit-Build-Deploy-Pipeline
-
+This project implements a DevSecOps pipeline for integrating security scanning throughout the application development lifecycle within the AWS environment. The pipeline leverages various tools to identify and address security vulnerabilities early, ensuring a more secure and robust application.
 # Objectives
+# Code Repository (AWS CodeCommit) 
+This serves as the central repository where developers store their application code.
+# SonarCloud (SAST)
+Performs Static Application Security Testing (SAST) by analyzing the application code directly in CodeCommit for vulnerabilities like SQL injection, insecure coding practices, and potential code smells.
+# Snyk (SCA)
+Conducts Software Composition Analysis (SCA) by scanning dependencies within the code for known vulnerabilities. This identifies potential risks introduced by third-party libraries used in the application.
+# TruffleHog
+Scans code for secrets like passwords, API keys, and other sensitive information that might be accidentally committed to the repository.
+# Build and Test (AWS CodeBuild)
+This service builds the application and executes the security scans mentioned above.
+# Deployment Pipeline (AWS CodePipeline)
+Orchestrates the entire development and security testing process.
+# Upon a code commit in CodeCommit
+- CodePipeline triggers a build in CodeBuild.
+- CodeBuild retrieves the code, runs SonarCloud SAST, Snyk SCA, and TruffleHog scans, and integrates the results into the pipeline.
+- CodePipeline evaluates the scan results. If vulnerabilities are detected, it can notify developers or prevent deployment until the issues are addressed.
+# Dynamic Analysis (Zap Proxy) 
+Zap Proxy is used as a Dynamic Application Security Testing (DAST) tool. DAST involves running the application to and analyze its behavior for vulnerabilities. This can be a valuable addition for a comprehensive security assessment.
+Benefits:
+
 - Create a repository on AWS CodeCommit
 - IAM > Users > Select user > Security credentials > HTTPS Git credentials for AWS CodeCommit > Generate credentials > Save credential
 - Clone repository Copy URL > Git > git clone https://git-codecommit_us-east-1..........
@@ -22,4 +40,5 @@
       TOKEN: sonarcloud1:tokenForSonar
       Dsonar.login=$TOKEN
  - Create a CI/CD Pipeline on AWS
+ - Add a stage between Source and Build stage
  
