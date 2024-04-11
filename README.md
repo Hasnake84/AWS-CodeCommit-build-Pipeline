@@ -20,25 +20,69 @@ Orchestrates the entire development and security testing process.
 # Dynamic Analysis (Zap Proxy) 
 Zap Proxy is used as a Dynamic Application Security Testing (DAST) tool. DAST involves running the application to and analyze its behavior for vulnerabilities. This can be a valuable addition for a comprehensive security assessment.
 Benefits:
-
+# Steps
 - Create a repository on AWS CodeCommit
+
+ <a href="https://imgur.com/xnG6YhB"><img src="https://i.imgur.com//xnG6YhB.png" title="source: imgur.com" /></a>
+ 
 - IAM > Users > Select user > Security credentials > HTTPS Git credentials for AWS CodeCommit > Generate credentials > Save credential
+
+ <a href="https://imgur.com/bVYfLZC"><img src="https://i.imgur.com//bVYfLZC.png" title="source: imgur.com" /></a>
+
 - Clone repository Copy URL > Git > git clone https://git-codecommit_us-east-1..........
+
+  <a href="https://imgur.com/FwqfVua"><img src="https://i.imgur.com//FwqfVua.png" title="source: imgur.com" /></a>
+ 
 - Add code to the folder > Git > git add * > git commit -m "Added files" > Git push
+
+  <a href="https://imgur.com/Vt4f07J"><img src="https://i.imgur.com//Vt4f07J.png" title="source: imgur.com" /></a>  <a href="https://imgur.com/wcvxqKv"><img src="https://i.imgur.com//wcvxqKv.png" title="source: imgur.com" /></a>
+
 - Create a buildspec.yml file
+
+  <a href="https://imgur.com/RCNLRxM"><img src="https://i.imgur.com//RCNLRxM.png" title="source: imgur.com" /></a>
+
 - Create organization project on SonalCloud for Static Application Security Testing (SAST)
 - Update the buildspec.yml file with the SonalCloud project key, organization and token
 - Using Git update buildspec.yml file with, git add * > git commit -m "buildspec file updated" > git push
 - Create a CodeBuild Project instance on AWS > Start build
+
+  <a href="https://imgur.com/P70lP4J"><img src="https://i.imgur.com//P70lP4J.png" title="source: imgur.com" /></a>
+
 - Observe the build scan result on SonarCloud
 - Add java files for unit test and better scan coverage
-- Install TruffleHog and run a scan for leaked credential
+
+  <a href="https://imgur.com/wlwvYtp"><img src="https://i.imgur.com//wlwvYtp.png" title="source: imgur.com" /></a>
+
 - Config secret key in AWS secret manager > Store a new secret > Select other type of secret (API token) > Add the Key-name / Value-token
-- Update buildspec.yml file as follows
+
+  <a href="https://imgur.com/DZ9F8H6"><img src="https://i.imgur.com//DZ9F8H6.png" title="source: imgur.com" /></a>
+
+- Install TruffleHog and run a scan for leaked credential
+ 
+  <a href="https://imgur.com/DZ9F8H6"><img src="https://i.imgur.com//DZ9F8H6.png" title="source: imgur.com" /></a>
+  
+  <a href="https://imgur.com/9AvgZEZ"><img src="https://i.imgur.com//9AvgZEZ.png" title="source: imgur.com" /></a>
+
+- Update buildspec.yml file as follows 
     env:
     secrets-manager:
       TOKEN: sonarcloud1:tokenForSonar
       Dsonar.login=$TOKEN
  - Create a CI/CD Pipeline on AWS
- - Add a stage between Source and Build stage
- 
+ - Add a stage between Source and Build stage and connect with the Snyk Software Composition Analysis tool
+ - Snyk SCA scan result
+
+  <a href="https://imgur.com/bB69cqf"><img src="https://i.imgur.com//bB69cqf.png" title="source: imgur.com" /></a>
+
+  - Create an Artifacts storage
+
+  <a href="https://imgur.com/fXwWlkZ"><img src="https://i.imgur.com//fXwWlkZ.png" title="source: imgur.com" /></a>
+
+  # Deploying DAST with OWASP zap
+  
+  - Rename old buildspec.yml file and add a new buildspec file with the following code
+
+  <a href="https://imgur.com/k22fB0h"><img src="https://i.imgur.com//k22fB0h.png" title="source: imgur.com" /></a>
+
+
+
