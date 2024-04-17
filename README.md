@@ -74,10 +74,10 @@ Benefits:
   <a href="https://imgur.com/9AvgZEZ"><img src="https://i.imgur.com//9AvgZEZ.png" title="source: imgur.com" /></a>
 
 - Update buildspec.yml file as follows 
-    env:
-    secrets-manager:
-      TOKEN: sonarcloud1:tokenForSonar
-      Dsonar.login=$TOKEN
+    - env:
+    - secrets-manager:
+    - TOKEN: sonarcloud1:tokenForSonar
+    - Dsonar.login=$TOKEN
  - Create a CI/CD Pipeline on AWS
  - Add a stage between Source and Build stage and connect with the Snyk Software Composition Analysis tool
  - Snyk SCA scan result
@@ -102,7 +102,13 @@ Benefits:
    <a href="https://imgur.com/nJ58T4G"><img src="https://i.imgur.com//nJ58T4G.png" title="source: imgur.com" /></a>
 
    - AWS > CodePipeline > Release change for DAST OWASP ZAP (Zed Attack Proxy) scan
+   - Succesful build pipeline stages
+     - Source stage
+     - SCA(Sofware Composition Analysis) stage
+     - Build stage 
    - OWASP ZAP scan report
+     
+   - <a href="https://imgur.com/XEHUu9z"><img src="https://i.imgur.com//XEHUu9z.png" title="source: imgur.com" /></a>
 
    <a href="https://imgur.com/J2FUngc"><img src="https://i.imgur.com//J2FUngc.png" title="source: imgur.com" /></a>
 # Conclusion:
