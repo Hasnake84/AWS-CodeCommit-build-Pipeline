@@ -2,6 +2,8 @@
 This project implements a DevSecOps pipeline for integrating security scanning throughout the application development lifecycle within the AWS environment. The pipeline leverages various tools to identify and address security vulnerabilities early, ensuring a more secure and robust application.
 # Objectives:
  <a href="https://imgur.com/9BxctDm"><img src="https://i.imgur.com//9BxctDm.png" title="source: imgur.com" /></a>
+# Implementation:
+This project involves configuring CodePipeline, CodeBuild, and integrating the chosen security scanning tools (SonarCloud, Snyk, TruffleHog) with the pipeline.  Additionally, IAM roles and policies need to be set up to grant the pipeline and build services access to the CodeCommit repository and required AWS resources.
 # Code Repository (AWS CodeCommit) 
 This serves as the central repository where developers store their application code.
 # SonarCloud (SAST) Static Application Security Testing
@@ -54,6 +56,9 @@ Benefits:
   <a href="https://imgur.com/P70lP4J"><img src="https://i.imgur.com//P70lP4J.png" title="source: imgur.com" /></a>
 
 - Observe the build scan result on SonarCloud
+
+  <a href="https://imgur.com/oUTIEC7"><img src="https://i.imgur.com//oUTIEC7.png" title="source: imgur.com" /></a>
+
 - Add java files for unit test and better scan coverage
 
   <a href="https://imgur.com/wlwvYtp"><img src="https://i.imgur.com//wlwvYtp.png" title="source: imgur.com" /></a>
@@ -99,9 +104,10 @@ Benefits:
    - AWS > CodePipeline > Release change for DAST OWASP ZAP (Zed Attack Proxy) scan
    - OWASP ZAP scan report
 
-   <a href="https://imgur.com/nJ58T4G"><img src="https://i.imgur.com//nJ58T4G.png" title="source: imgur.com" /></a>
+   <a href="https://imgur.com/J2FUngc"><img src="https://i.imgur.com//J2FUngc.png" title="source: imgur.com" /></a>
+# Conclusion:
 
-
+By implementing this DevSecOps pipeline, organizations can significantly improve the security posture of their applications. Integrating security scans throughout the development lifecycle fosters a "security-first" mentality and ultimately leads to building more robust and secure applications.
 
 
 
